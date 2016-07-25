@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class MaxNumber {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int letters = 0,space = 0,digit = 0,other = 0;
+		String c;
+		System.out.print("请输入一行字符：");
+		c = input.nextLine();
+		for(int i = 0;i < c.length();i++){
+			if(c.charAt(i) >= 'a' && c.charAt(i) <= 'z' 
+					|| c.charAt(i) >= 'A' && c.charAt(i) <= 'Z')
+				letters++;
+			else if(c.charAt(i)== ' ') space++;
+			else if(c.charAt(i) >= '0' && c.charAt(i) <= '9') digit++;
+			else other++;
+		}
+		System.out.println("字母数：" + letters + "，空格数：" + space + 
+				",数字数：" + digit + "其他字符数：" + other);
+	}
+}
+/*java中不能直接用Scanner读入一串字符，需要用字符串。
+*/
