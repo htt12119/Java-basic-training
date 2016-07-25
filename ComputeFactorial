@@ -1,0 +1,14 @@
+/**
+ *数据宽度为22，数字部分中小数位数为15位。
+ */
+import java.util.Scanner;
+public class MaxNumber {
+	public static void main(String[] args) {
+		double s = 0,t = 1;
+		for(int n = 1;n <= 20;n++){
+			t = t*n;
+			s = s + t;
+		}
+		System.out.printf("1! + 2! + ... + 20! = %22.15e\n",s);
+	}
+}
