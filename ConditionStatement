@@ -1,0 +1,16 @@
+/**
+ * conditional statement(colon).
+ */
+import java.util.Scanner;
+public class MaxNumber {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("请输入三个整数：");
+		int a = input.nextInt();
+		int b = input.nextInt();
+		int c = input.nextInt();
+		int temp = (a > b)?a:b;//将a和b中的最大者存入temp
+		int max = (temp > c)?temp:c;//将a和b中的最大者与c比较，取最大者。
+		System.out.println("三个整数的最大数是" + max);
+	}
+}
