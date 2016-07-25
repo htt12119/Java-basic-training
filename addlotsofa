@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class MaxNumber {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int a,n,i = 1,sn = 0,tn = 0;
+		System.out.print("请输入a,n: ");
+		a = input.nextInt();
+		n = input.nextInt();
+		while(i <= n){
+			tn = tn + a;
+			sn = sn + tn;
+			a = a * 10;
+			++i;
+		}
+		System.out.println("a + aa + aaa + ... = " + sn);
+	}
+}
