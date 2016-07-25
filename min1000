@@ -1,0 +1,17 @@
+ * conditional statement(colon).
+ */
+import java.util.Scanner;
+public class MaxNumber {
+	static int M = 1000;
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.printf("请输入一个小于1000的整数a：");
+		int a = input.nextInt();
+		if(a > M){
+			System.out.print("输入的数据不符合要求，请重新输入一个小于1000的整数a：");
+			a = input.nextInt();
+		}
+		int k = (int)Math.sqrt(a);
+		System.out.println(a + "的平方根的整数部分是" + k);
+	}
+}
