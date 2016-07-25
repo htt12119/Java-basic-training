@@ -1,0 +1,55 @@
+/**
+ * CASE statements.
+ */
+import java.util.Scanner;
+public class MaxNumber {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.print("请输入一个整数（0 - 99999）：");
+		int num = input.nextInt();
+		int place = 0;
+		if(num > 9999){
+			place = 5;
+		}else if(num > 999){
+			place = 4;
+		}else if(num > 99){
+			place = 3;
+		}else if(num > 9){
+			place = 2;
+		}else place = 1;
+		System.out.println("位数：" + place);
+		System.out.print("每位数字为：");
+		int ten_thousand = num/10000;;
+		int thousand = (int)(num - ten_thousand * 10000)/1000;
+		int hundred = (int)(num - ten_thousand*10000 - thousand*1000)/100;
+		int ten = (int)(num -  ten_thousand*10000 - thousand*1000 - hundred*100)/10;
+		int indiv = (int)(num -  ten_thousand*10000 - thousand*1000 - hundred*100 - ten*10);
+		switch(place){
+		case 5:
+			System.out.printf("%d,%d,%d,%d,%d\n",ten_thousand,thousand,hundred,ten,indiv);
+			System.out.print("反序数字为：");
+			System.out.printf("%d,%d,%d,%d,%d\n",indiv,ten,hundred,thousand,ten_thousand);
+			break;
+		case 4:
+			System.out.printf("%d,%d,%d,%d\n",thousand,hundred,ten,indiv);
+			System.out.print("反序数字为：");
+			System.out.printf("%d,%d,%d,%d\n",indiv,ten,hundred,thousand);
+			break;
+		case 3:
+			System.out.printf("%d,%d,%d\n",hundred,ten,indiv);
+			System.out.print("反序数字为：");
+			System.out.printf("%d,%d,%d\n",indiv,ten,hundred);
+			break;
+		case 2:
+			System.out.printf("%d,%d\n",ten,indiv);
+			System.out.print("反序数字为：");
+			System.out.printf("%d,%d\n",indiv,ten);
+			break;
+		case 1:
+			System.out.printf("%d\n",indiv);
+			System.out.print("反序数字为：");
+			System.out.printf("%d\n",indiv);
+			break;
+		}
+	}
+}
