@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class MaxNumber {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		float a,x0,x1;
+		System.out.println("Enter a positive number:");
+		a = input.nextFloat();
+		x0 = a/2;
+		x1 = (x0 + a/x0)/2;
+		do{
+			x0 = x1;
+			x1 = (x0 + a/x0)/2;
+		}while(Math.abs(x0 - x1) >= 1e-5);
+		System.out.printf("The square root of %5.2f is %8.5f\n",a,x1);
+	}
+}
