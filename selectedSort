@@ -1,0 +1,35 @@
+/**
+ *用选择法对10个整数排序
+ *
+ */
+import java.util.Scanner;
+public class Enjoyment {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int i,j,min,temp;
+		int a[] = new int[11];
+		System.out.println("Enter data:");
+		for(i = 1;i <= 10;i++){
+			System.out.printf("a[%d] = ",i);
+			a[i] = input.nextInt();
+		}
+		System.out.println();
+		System.out.println("The orginal numbers:");
+		for(i = 1;i <= 10;i++)
+			System.out.printf("%5d",a[i]);
+		System.out.println();
+		for(i = 1;i <= 9;i++){
+			min = i;
+			for(j = i + 1;j <= 10;j++)
+				if(a[min] > a[j]) min = j;
+			//以下3行将a[i + 1]~a[10]中最小值与a[i]对换
+			temp = a[i];
+			a[i] = a[min];
+			a[min] = temp;
+		}
+		System.out.printf("\nThe sorted numbers:\n");
+		for(i = 1;i <= 10;i++)
+			System.out.printf("%5d",a[i]);
+		System.out.println();
+	}
+}
