@@ -1,0 +1,40 @@
+/**
+ *有一个已排好序的数组，要求输入一个数后，按原来排序的规律将它插入数组中。
+ *注意：c中与java中数组的使用方法不尽相同
+ */
+import java.util.Scanner;
+public class Enjoyment {
+	public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	int a[] = {1,4,6,9,13,16,19,28,40,100,0};
+	int temp1,temp2,number,end,i,j;
+	System.out.println("array a:");
+	for(i = 0;i < 10;i++)
+		System.out.printf("%5d",a[i]);
+	System.out.println();
+	System.out.print("insert data:");
+	number = input.nextInt();
+	end = a[9];
+	if(number > end){
+		a[10] = number;
+	}else{
+		for(i = 0;i < 10;i++){
+			if(a[i] > number){
+				temp1 = a[i];
+				a[i] = number;
+				//将每个数往后移
+				for(j = i + 1;j < 11;j++){
+					temp2 = a[j];
+					a[j] = temp1;
+					temp1 = temp2;
+				}
+				break;
+			}
+		}
+	}
+	System.out.println("Now array a:");
+	for(i = 0;i < 11;i++)
+		System.out.printf("%5d",a[i]);
+	System.out.println();
+	}
+}
