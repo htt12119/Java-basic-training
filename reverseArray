@@ -1,0 +1,27 @@
+/**
+ *将一个数组中的值按逆序重新存放。
+ */
+import java.util.Scanner;
+public class Enjoyment {
+	static int N = 5;
+	public static void main(String[] args) {
+	Scanner input = new Scanner(System.in);
+	int a[] = new int[N];
+	int i,temp;
+	System.out.println("Enter arrat a:");
+	for(i = 0;i < N;i++)
+		a[i] = input.nextInt();
+	System.out.println("array a:");
+	for(i = 0;i < N;i++)
+		System.out.printf("%5d",a[i]);
+	for(i = 0;i < N/2;i++){
+		temp = a[i];
+		a[i] = a[N - i - 1];
+		a[N - i - 1] = temp;
+	}
+	System.out.printf("\nNow array a:\n");
+	for(i = 0;i < N;i++)
+		System.out.printf("%5d",a[i]);
+	System.out.println();
+	}
+}
