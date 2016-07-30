@@ -1,0 +1,41 @@
+/**
+ *写一个函数，使给定的一个3*3的二维整型数组转置，即行列互换。
+ */
+import java.util.Scanner;
+public class Enjoyment {
+	static int N = 3;
+	static int array[][] = new int[N][N];
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int i,j;
+		System.out.println("input array:");
+		for(i = 0;i < N;i++)
+			for(j = 0;j < N;j++)
+				array[i][j] = input.nextInt();
+		System.out.printf("\noriginal array:\n");
+		for(i = 0;i < N;i++){
+			for(j = 0;j < N;j++){
+				System.out.printf("%5d",array[i][j]);
+			}
+			System.out.println();
+		}
+		convert(array);
+		System.out.println("convert array:");
+		for(i = 0;i < N;i++){
+			for(j = 0;j < N;j++){
+				System.out.printf("%5d",array[i][j]);
+			}
+			System.out.println();
+		}
+	}
+	public static void convert(int[][] array2) {
+		int i,j,t;
+		for(i = 0;i < N;i++){
+			for(j = i + 1;j < N;j++){
+				t = array[i][j];
+				array[i][j] = array[j][i];
+				array[j][i] = t;
+			}
+		}
+	}
+}
