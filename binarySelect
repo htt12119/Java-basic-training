@@ -1,0 +1,58 @@
+/**
+ *有15个数按由大到小顺序存放在一个数组中，输入一个数，要求用折半查找法找该数是数组中第几个
+ *元素的值。如果该数不在数组中，则输出“无此数”。
+ *注意：这个时候用的next（）。
+ */
+import java.util.Scanner;
+public class Enjoyment {
+	static int N = 15;
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int i, number, top, bott, mid, loca = 0, flag = 1, sign;
+		String c = "";
+		int a[] = new int[N];
+		System.out.println("enter data:");
+		a[0] = input.nextInt();// 输入第一个数
+		i = 1;
+		while (i < N) {// 检查数是否已输入完毕
+			a[i] = input.nextInt();// 输入下一个数
+			if (a[i] >= a[i - 1])
+				i++;// 如果输入的数不小于前一个数
+			else
+				System.out.println("enter this data again:");// 要求重新输入此数
+		}
+		System.out.println();
+		for (i = 0; i < N; i++)
+			System.out.printf("%5d", a[i]);// 输出全部15个数
+		System.out.println();
+		while (flag == 1){
+			System.out.println("input number to look for:");// 问你要查找哪个数
+			number = input.nextInt();// 输入要查找的数
+			sign = 0;// sign为0表示尚未找到
+			top = 0;// top是查找区间的起始位置
+			bott = N - 1;// bott是查找区间的最末位置
+			if ((number < a[0]) || (number > a[N - 1]))// 要查的数不在查找区间内
+				loca = -1;// 表示找不到
+			while ((sign == 0) && (top <= bott)) {
+				mid = (bott + top) / 2;// 找出中间元素的下标
+				if (number == a[mid]) {// 如果要查找的数正好等于中间元素
+					loca = mid;// 记下该下标
+					System.out.printf("Has found %d,its position is %d\n", number, loca + 1);
+					// 由于下标从0算起，而人们习惯从1算起，因此输出的数的位置要加1
+					sign = 1;// 表示找到了
+				} else if (number < a[mid]) {
+					bott = mid - 1;
+				} else {
+					top = mid + 1;
+				}
+			}
+			if (sign == 0 || loca == -1)
+				System.out.printf("cannot find %d.\n", number);
+			System.out.print("continue or not (Y/N)？");
+			c = input.next();
+			if (c.charAt(0) == 'N' || c.charAt(0) == 'n'){
+				flag = 0;
+			 }
+			}
+	}
+}
