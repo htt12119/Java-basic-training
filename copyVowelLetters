@@ -1,0 +1,27 @@
+/**
+ *写一个函数，将一个字符串中的元音字母复制到另一个字符串，然后输出。
+ */
+import java.util.Scanner;
+public class Enjoyment {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("input string:");
+		String s = input.nextLine();
+		s = cpy(s);
+		System.out.println("The vowel letters are:" + s);
+	}
+	public static String cpy(String s) {
+		String temp = "";
+		int i= 0,j = 0;
+		for(;i < s.length()&&s.charAt(i) != '\0';i++){
+			if(s.charAt(i) == 'a'||s.charAt(i) == 'A'||s.charAt(i) == 'e'
+					||s.charAt(i) == 'E'||s.charAt(i) == 'i'||s.charAt(i) == 'I'
+					||s.charAt(i) == 'o'||s.charAt(i) == 'O'||s.charAt(i) == 'u'
+					||s.charAt(i) == 'O')
+			{
+				temp = temp + s.charAt(i);
+			}
+		}
+		return temp;
+	}
+}
