@@ -1,0 +1,37 @@
+/**
+ *有一行电文，已按下面规律译成密码：
+ *A->Z a->z
+ *B->Y b->y
+ *C->X c->x
+ *.     .
+ *.     .
+ *.     .
+ *即将第1个字母变成第26个字母，第i个字母变成第（26-i+1）个字母，非字母字符不变。要求
+ *编程序将字母议会原文，并输出密码和密文。
+ */
+import java.util.Scanner;
+public class Enjoyment {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int j,n;
+		char tran[] = new char[80];
+		System.out.println("input cipher code:");
+		String s = input.nextLine();
+		System.out.printf("cipher code: %s",s);
+		j = 0;
+		while(j < s.length() && s.charAt(j) != '0'){
+			if((s.charAt(j) >= 'A') &&(s.charAt(j) <= 'Z'))
+				tran[j] = (char)(155 - (int)s.charAt(j));
+			else if((s.charAt(j) >= 'a') &&(s.charAt(j) <= 'z'))
+				tran[j] = (char)(219 - (int)s.charAt(j));
+			else 
+				tran[j] = s.charAt(j); 
+			j++; 
+		}
+		n = j;
+		System.out.printf("\norigininal text:");
+		for(j = 0;j < n;j++)
+			System.out.print(tran[j]);
+		System.out.println();
+	}
+}
