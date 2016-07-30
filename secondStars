@@ -1,0 +1,19 @@
+/**
+ *输出星花图案啦~
+ */
+public class Enjoyment {
+	public static void main(String[] args) {
+		char a[] = {'*','*','*','*','*'};
+		int i,j,k;
+		char space = ' ';
+		for(i = 0;i < 5;i++){
+			System.out.println();
+			System.out.printf("    ");
+			for(j = 1;j <= i;j++)
+				System.out.printf("%c",space);
+			for(k = 0;k < 5;k++)
+				System.out.printf("%c",a[k]);
+		}
+		System.out.println();
+	}
+}
