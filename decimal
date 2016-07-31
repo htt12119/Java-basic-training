@@ -1,0 +1,51 @@
+/**
+ *写一个函数，输入一个十六进制数，输出相应的十进制数。
+ *字符串相等要记得是equal,这个地方的原版的程序里的地方我没能实现。下次再见到这种题要再详细看看。
+ */
+import java.util.Scanner;
+public class Enjoyment {
+	static int MAX = 1000;
+	static char p[] = new char[MAX];
+	static char t[] = new char[MAX]; 
+	static String s = " ";
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int i = 0;
+		boolean flag = false;
+		boolean flag1 = true;
+		char c;
+		System.out.println("input a HEX number:");
+		String s = input.nextLine();
+		int k;
+		for(k = 0;k < s.length();k++)
+			p[k] = s.charAt(k);
+		k = 0;
+		while(k < p.length && (c = p[k]) != ' ' && i < MAX && flag1 == true){
+			if(c >= '0'&& c <= '9' || c >= 'a' && c <= 'f'
+					||c >= 'A' && c <= 'F'){
+				flag = true;
+				t[i++] = c;
+			}else if(flag == true){
+				t[i] = ' ';
+				System.out.printf("decimal number %d\n",htoi(t));
+				break;
+			}
+			k++;
+		}
+	}
+	private static int htoi(char[] s) {
+		int i,n = 0;
+		for(i = 0;s[i] != ' ';i++){
+			if(s[i] >= '0'&&s[i] <= '9'){
+				n = n*16 + s[i] - '0';
+			}
+			if(s[i] >= 'a' && s[i] <= 'f'){
+				n = n*16 + s[i] - 'a' + 10;
+			}
+			if(s[i] >= 'A' && s[i] <= 'F'){
+				n = n*16 + s[i] - 'A' + 10;
+			}
+		}
+		return n;
+	}
+}
