@@ -1,0 +1,33 @@
+/**
+ *给出年、月、日，计算该日是该年的第几天。
+ */
+import java.util.Scanner;
+public class Enjoyment {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int year,month,day,days;
+		System.out.println("input date(year,month,day):");
+		year = input.nextInt();
+		month = input.nextInt();
+		day = input.nextInt();
+		System.out.printf("%d/%d/%d",year,month,day);
+		days = sum_day(month,day);
+		if(leap(year) && month >= 3)
+			days = days + 1;
+		System.out.printf(" is the %dth day in this year.\n",days);
+	}
+
+	private static boolean leap(int year) {
+		boolean leap;
+		leap = year % 4 == 0 && year%100 != 0 || year%400 == 0;
+		return leap;
+	}
+
+	private static int sum_day(int month, int day) {
+		int day_tab[]={0,31,28,31,30,31,30,31,31,30,31,30,31};
+		int i;
+		for(i = 1;i < month;i++)
+			day += day_tab[i];
+		return day;
+	}
+}
