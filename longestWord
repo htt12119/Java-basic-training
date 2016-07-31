@@ -1,0 +1,48 @@
+/**
+ *写一个函数，输入一行字符，将此字符串中最长的单词输出。
+ */
+import java.util.Scanner;
+
+public class Enjoyment {
+	static char line[] = new char[100];
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("input string:");
+		String s = input.nextLine();
+		int i = 0;
+		while (i < s.length()) {
+			line[i] = s.charAt(i);
+			System.out.println("hah:" + line[i]);
+			i++;
+		}
+		System.out.print("The longest word is: ");
+		for (i = longest(line); alphabetic(line[i]); i++)
+			System.out.print(line[i]);
+	}
+	private static boolean alphabetic(char c) {
+		if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+			return true;
+		else
+			return false;
+	}
+	private static int longest(char[] line) {
+		int len = 0, i, length = 0, flag = 1, place = 0, point = 0;
+		for (i = 0; i < line.length; i++) {
+			if (alphabetic(line[i])) {
+				if (flag == 1) {
+					point = i;
+					flag = 0;
+				} else
+					len++;
+			} else {
+				flag = 1;
+				if (len >= length) {
+					length = len;
+					place = point;
+					len = 0;
+				}
+			}
+		}
+		return place;
+	}
+}
